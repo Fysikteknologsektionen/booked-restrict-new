@@ -10,7 +10,7 @@ GitHub Plugin URI: Fysikteknologsektionen/booked-restrict-new
 */
 
 // Is Booked installed and active?
-if( in_array('booked/booked.php',apply_filters('active_plugins',get_option('active_plugins')))) {
+if( in_array( 'booked/booked.php', apply_filters( 'active_plugins', get_option('active_plugins') ) ) ) {
 
 	if(!class_exists('BookedRN_Plugin')) {
 		class BookedRN_Plugin {
