@@ -6,7 +6,7 @@ Plugin URI: https://getbooked.io
 Description: Removes the ability to edit profile or add users through Booked
 Author: Johan Winther (johwin)
 Text Domain: booked-restrict-new
-GitHub Plugin URI: fysikteknologsektionen/booked-restrict-new
+GitHub Plugin URI: Fysikteknologsektionen/booked-restrict-new
 */
 
 // Is Booked installed and active?
