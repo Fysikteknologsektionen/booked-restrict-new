@@ -4,6 +4,7 @@
 Plugin Name: Booked Add-On: Remove new user capabilities
 Plugin URI: https://getbooked.io
 Description: Removes the ability to edit profile or add users through Booked
+Version: 1.0.0
 Author: Johan Winther (johwin)
 Text Domain: booked-restrict-new
 GitHub Plugin URI: Fysikteknologsektionen/booked-restrict-new
@@ -22,7 +23,7 @@ if( in_array( 'booked/booked.php', apply_filters( 'active_plugins', get_option('
 			}
 
 			public function booked_rn_init(){
-			        global $booked_plugin;
+			    global $booked_plugin;
 				if (is_user_logged_in()):
 					add_filter('booked_profile_tabs',array(&$this, 'booked_rn_tabs'),1);
 					remove_action('admin_notices', array(&$booked_plugin,'booked_pending_notice'));
@@ -30,7 +31,9 @@ if( in_array( 'booked/booked.php', apply_filters( 'active_plugins', get_option('
 					remove_filter('manage_users_custom_column',array(&$booked_plugin,'booked_add_custom_user_columns'),15);
 					//add_action('wp_ajax_booked_new_appointment_form', array(&$this,'booked_rn_appointment_form'));
 				endif;
-
+				
+				/* Disable sessions in Booked plugin */
+				add_filter( 'booked_sessions_enabled', '__return_false' );
 			}
 
 			public function booked_rn_tabs($custom_tabs){
